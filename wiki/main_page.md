@@ -44,5 +44,5 @@ Step into my **world-building lab!**
 ---
 
 ### 🚧 *Always Growing*  
-This wiki is a **living, evolving project**, so check back often!  
+This wiki is a **new living, evolving project**, so check back often!  
 Happy exploring!  
