@@ -1,0 +1,44 @@
+---
+layout: none
+sitemap: false
+is_wiki_page: false
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Posts -->
+  {% for post in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url | relative_url }}</loc>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
+
+  <!-- Pages -->
+  {% for page in site.pages %}
+  {% unless page.layout == nil or page.sitemap == false %}
+  <url>
+    <loc>{{ site.url }}{{ page.url | relative_url }}</loc>
+    <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  {% endunless %}
+  {% endfor %}
+
+  <!-- Wiki Pages -->
+  {% for wiki in site.pages %}
+  {% if wiki.is_wiki_page == true %}
+  <url>
+    <loc>{{ site.url }}{{ wiki.url | relative_url }}</loc>
+    <lastmod>{{ wiki.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {% endif %}
+  {% endfor %}
+
+</urlset>
