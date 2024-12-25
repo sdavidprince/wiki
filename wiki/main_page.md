@@ -21,7 +21,8 @@ I get it—explaining the same thing over and over gets tiring.
 
 ---
 
-## 📖 **Glossary**  
+## 📖 [**Glossary**](https://sdavidprince.space/wiki/glossary)
+
 I’m part of several communities and have... let's just say *varied interests.*  
 - Expect **jargon, slang**, and **weird terms**—sometimes ones I made up!  
 - If you see something strange or unfamiliar, check the glossary. It’s probably here.  
