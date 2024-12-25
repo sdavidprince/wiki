@@ -1,13 +1,18 @@
 ---
 layout: none
+permalink: /sitemap.xml
 sitemap: false
 is_wiki_page: false
-permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-  <!-- Blog Posts -->
   {% for post in site.posts %}
   {% unless post.sitemap == false %}
   <url>
@@ -19,7 +24,17 @@ permalink: /sitemap.xml
   {% endunless %}
   {% endfor %}
 
-  <!-- Wiki Pages -->
+  {% for page in site.pages %}
+  {% unless page.layout == "none" or page.sitemap == false or page.url contains ".js" or page.url contains ".css" %}
+  <url>
+    <loc>{{ site.url }}{{ page.url | relative_url }}</loc>
+    <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {% endunless %}
+  {% endfor %}
+
   {% for wiki in site.pages %}
   {% if wiki.is_wiki_page == true and wiki.sitemap != false %}
   <url>
@@ -30,5 +45,4 @@ permalink: /sitemap.xml
   </url>
   {% endif %}
   {% endfor %}
-
 </urlset>
