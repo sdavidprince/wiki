@@ -46,19 +46,21 @@
 <details>
   <summary style="font-size: 16px; font-weight: bold; cursor: pointer;">Backlinks</summary>
   <ul style="margin-top: 10px;">
-    {% assign current_url = page.url %}
+      {% assign current_url = page.url %}
     {% assign backlinks_found = false %}
+
     {% for other_page in site.pages %}
       {% if other_page.content contains current_url and other_page.url != current_url %}
         {% assign backlinks_found = true %}
-        <li><a href="{{ site.baseurl }}{{ other_page.url }}">{{ other_page.title }}</a>
-     </li>
+        <li>
+       <a href="{{ site.baseurl }}{{ other_page.url }}">{{ other_page.title }}</a>
+        </li>
       {% endif %}
     {% endfor %}
+
     {% if backlinks_found == false %}
-      <li>
-          No Backlinks Yet   </li> 
-      {% endif %}
+      <li>No backlink yet</li>
+    {% endif %}
   </ul>
 </details>
 
