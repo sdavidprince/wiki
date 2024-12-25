@@ -14,24 +14,24 @@ is_wiki_page: false
     <priority>1.0</priority>
   </url>
 
-  {% for wiki in site.pages %}
-  {% if wiki.is_wiki_page == true and wiki.sitemap != false and wiki.layout != "404" %}
-  <url>
-    <loc>{{ site.url }}{{ wiki.url | relative_url }}</loc>
-    <lastmod>{{ wiki.date | date: "%Y-%m-%d" }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  {% endif %}
-  {% endfor %}
-
   {% for post in site.posts %}
-  {% unless post.sitemap == false or post.layout == "404" %}
+  {% unless post.sitemap == false or post.layout == "404" or post.url contains ".txt" or post.url contains ".js" or post.url contains ".css" %}
   <url>
     <loc>{{ site.url }}{{ post.url | relative_url }}</loc>
     <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  {% endunless %}
+  {% endfor %}
+
+  {% for page in site.pages %}
+  {% unless page.layout == "none" or page.sitemap == false or page.layout == "404" or page.url contains ".js" or page.url contains ".css" or page.url contains ".txt" %}
+  <url>
+    <loc>{{ site.url }}{{ page.url | relative_url }}</loc>
+    <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   {% endunless %}
   {% endfor %}
