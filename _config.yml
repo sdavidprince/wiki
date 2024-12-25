@@ -17,7 +17,7 @@ blog_feature: true
 # (boolean) Enable/disable wiki posts list in sidebar (needs blog_feature enabled)
 show_wiki_posts: true
 # (integer) Maximum number of wiki posts to shown in sidebar
-show_wiki_posts_limit: 10
+show_wiki_posts_limit: 5
 # from jekyll (read jekyll doc)
 paginate: 5
 paginate_path: "/assets/blog/page:num"
@@ -44,9 +44,9 @@ use_prose_io: true
 # - github : it uses internal github repository search
 # - google : it uses cse search bar, you need to configure google_cse_token
 #
-search_engine : "js"
+search_engine : "js_rss"
 # Setting google custom search engine for google
-# cse search bar (https://cse.google.it/cse/)
+# cse search bar (https://cse.google.com/cse?cx=d387f9f5849bd46ae)
 google_cse_token: 
 
 # (string) path of site root. Normally it's must be empty because _config.yml resides in the root of your repository.
@@ -91,12 +91,12 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "git-wiki-bs-united"
+      layout: "git-wiki-post"
  -
     scope:
       path: assets/blog
     values:
-      layout: "git-wiki-bs-united"
+      layout: "git-wiki-blog"
 sass:
     style: compressed
 plugins:
