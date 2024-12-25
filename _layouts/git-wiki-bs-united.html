@@ -41,16 +41,25 @@
                     <div id="git-wiki-content">
                         {{ content }}
                     </div>
-                    <div class="backlinks">
-  <h3>Linked From</h3>
-  <ul>
+                    <br/>
+                    <div style="margin-top: 20px;" class="backlinks">
+<details>
+  <summary style="font-size: 16px; font-weight: bold; cursor: pointer;">Backlinks</summary>
+  <ul style="margin-top: 10px;">
     {% assign current_url = page.url %}
+    {% assign backlinks_found = false %}
     {% for other_page in site.pages %}
       {% if other_page.content contains current_url and other_page.url != current_url %}
+        {% assign backlinks_found = true %}
         <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
       {% endif %}
     {% endfor %}
+    {% if backlinks_found == false %}
+      <li>No backlinks found.</li>
+    {% endif %}
   </ul>
+</details>
+
 </div>
 
                     {% if site.inc_after_content %}
