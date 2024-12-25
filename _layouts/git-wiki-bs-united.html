@@ -51,13 +51,13 @@
     {% for other_page in site.pages %}
       {% if other_page.content contains current_url and other_page.url != current_url %}
         {% assign backlinks_found = true %}
-        <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
+        <li><a href="{{ site.baseurl }}{{ other_page.url }}">{{ other_page.title }}</a>
+     </li>
       {% endif %}
     {% endfor %}
     {% if backlinks_found == false %}
       <li>
-          <a href="{{ site.baseurl }}{{ other_page.url }}">{{ other_page.title }}</a>
-        </li> 
+          No Backlinks Yet   </li> 
       {% endif %}
   </ul>
 </details>
