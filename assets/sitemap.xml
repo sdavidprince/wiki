@@ -22,7 +22,7 @@ is_wiki_page: false
       {% if post.date %}
         {{ post.date | date: "%Y-%m-%d" }}
       {% else %}
-        {{ site.time | date: "%Y-%m-%d" }} <!-- Fallback to site time -->
+        {{ site.time | date: "%Y-%m-%d" }} 
       {% endif %}
     </lastmod>
     <changefreq>yearly</changefreq>
@@ -39,7 +39,7 @@ is_wiki_page: false
       {% if page.date %}
         {{ page.date | date: "%Y-%m-%d" }}
       {% else %}
-        {{ site.time | date: "%Y-%m-%d" }} <!-- Fallback to site time -->
+        {{ site.time | date: "%Y-%m-%d" }} 
       {% endif %}
     </lastmod>
     <changefreq>monthly</changefreq>
